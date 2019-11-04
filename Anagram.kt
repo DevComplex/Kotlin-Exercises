@@ -47,14 +47,12 @@ fun getAnagramsOfWord(word: String, groupedAnagrams: HashMap<String, HashSet<Str
 
 fun main(args: Array<String>) {
     if (args.size < 2) {
+        println("Please specify a word and file path.")
         exitProcess(1)
     }
 
     val word = args[0]
     val filePath = args[1]
-
-    println(word)
-    println(filePath)
 
     var wordsFromFile: List<String>? = null
 
