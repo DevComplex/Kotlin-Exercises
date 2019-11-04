@@ -1,5 +1,13 @@
-class AutoCompleteSystem {
+class AutoCompleteSystem(words: List<String>? = null) {
     private val root = Node()
+
+    init {
+        if (words != null && words.size > 0) {
+            for(word in words) {
+                insertWord(word)
+            }
+        }
+    }
 
     fun insertWord(word: String) {
         var node = root;
@@ -64,11 +72,7 @@ class AutoCompleteSystem {
 
 fun main() {
     val words = listOf("Book", "Car", "Orange", "Pear", "Plane", "Pixel", "Pixy", "Organic")
-    val system = AutoCompleteSystem()
-
-    for (word in words) {
-        system.insertWord(word)
-    }
+    val system = AutoCompleteSystem(words)
 
     println(system.autoComplete("")) // "Book", "Car", "Orange", "Pear", "Plane", "Pixel", "Pixy", "Organic"
     println(system.autoComplete("Or")) // "Orange", "Organic"
